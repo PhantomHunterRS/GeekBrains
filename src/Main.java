@@ -11,12 +11,12 @@ public class Main {
         printArrayInfo(newArray2);
         searchArray(array,6);
         // task #3
-        int [] newArray3 = fillingRandomNumbers(24);
-        printArrayInfo(newArray3);
+        int [] newArray3 = fillingRandomNumbers(240);
+        //printArrayInfo(newArray3);
         //task #4
         // quickSort
         qSort(newArray3);
-        printArrayInfo(newArray3);
+        //printArrayInfo(newArray3);
         int [] newArrayBubble = fillingRandomNumbers(10);
         printArrayInfo(newArrayBubble);
         bubbleSort(newArrayBubble);
@@ -73,7 +73,9 @@ public class Main {
         return array;
     }
     static void qSort(int [] array){
+        long time = System.currentTimeMillis();
         quickSort(array,0,array.length-1);
+        System.out.println("Execution Time Quick Sorting:" + (System.currentTimeMillis()-time));
     }
     private static void quickSort(int[] array, int left, int right) {
         int i = left;
@@ -96,6 +98,7 @@ public class Main {
         }
     }
     public static void bubbleSort(int [] array){
+        long time = System.currentTimeMillis();
         for (int i = 0; i <array.length ; i++) {
             for (int j = 0; j <array.length-1 ; j++) {
                 if (array[j]>array[j+1]){
@@ -106,5 +109,6 @@ public class Main {
             }
 
         }
+        System.out.println("Execution Time Bubble Sorting:" + (System.currentTimeMillis()-time));
     }
 }
