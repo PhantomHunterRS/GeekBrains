@@ -21,6 +21,9 @@ public class Main {
         printArrayInfo(newArrayBubble);
         bubbleSort(newArrayBubble);
         printArrayInfo(newArrayBubble);
+        //snake
+        int [][] newArray4 = spiral(6,10);
+        printDoubleMatrix(newArray4);
     }
     public static int [] createArray(int size){
         int [] array = new int[size];
@@ -110,5 +113,46 @@ public class Main {
 
         }
         System.out.println("Execution Time Bubble Sorting:" + (System.currentTimeMillis()-time));
+    }
+    public static int [][] spiral(int row, int col){
+        int sequence = 1;
+        int direction = 0;
+        int iteration = 0;
+        int [][] arraySriral = new int[col][row];
+        for (int i = 0; sequence <= row*col; i++) {
+            direction = i%4;
+            iteration = i/4;
+            switch (direction){
+                case 0:
+                    for (int j = iteration; j < row - iteration ; j++ , sequence++) {
+                        arraySriral[iteration][j] = sequence;
+                    }
+                    break;
+                case 1:
+                    for (int j = iteration + 1; j < col - iteration ; j++, sequence++) {
+                        arraySriral[j][row - iteration - 1] = sequence;
+                    }
+                    break;
+                case 2:
+                    for (int j = row - iteration -2; j >= iteration ; j--,sequence++) {
+                        arraySriral[col - iteration - 1][j] = sequence;
+                    }
+                    break;
+                case 3:
+                    for (int j = col - iteration - 2; j > iteration ; j--,sequence++) {
+                        arraySriral[j][iteration] = sequence;
+                    }
+                    break;
+            }
+        }
+        return arraySriral;
+    }
+    public static void printDoubleMatrix(int [][]array){
+        for (int i = 0; i <array.length ; i++) {
+            for (int j = 0; j <array[i].length ; j++) {
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 }
