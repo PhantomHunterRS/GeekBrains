@@ -90,19 +90,15 @@ public class MyLinkedList<Item> {
         public Node getNext() {
             return next;
         }
-
         public void setNext(Node next) {
             this.next = next;
         }
-
         public Node getPrevious() {
             return previous;
         }
-
         public void setPrevious(Node previous) {
             this.previous = previous;
         }
-
         public Node(Item value) {
             this.value = value;
         }
@@ -111,11 +107,9 @@ public class MyLinkedList<Item> {
             this.value = value;
             this.next = next;
         }
-
         public Item getValue() {
             return value;
         }
-
         public void setValue(Item value) {
             this.value = value;
         }

@@ -24,7 +24,7 @@ public class MyStack<Item> {
         list[size] = item;
         size++;
     }
-    private boolean isFull(){
+    public boolean isFull(){
         return size == list.length;
     }
     // delete element
@@ -34,13 +34,13 @@ public class MyStack<Item> {
         list[size] = null;
         return temp;
     }
-    private Item peek(){
+    public Item peek() {
         if (isEmpty()){
             throw new EmptyStackException();
         }
         return list[size - 1];
     }
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return size == 0;
     }
     // change size
