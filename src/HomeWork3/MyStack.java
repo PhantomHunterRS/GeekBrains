@@ -49,4 +49,7 @@ public class MyStack<Item> {
         System.arraycopy(list,0,tempArr,0,size);
         list = tempArr;
     }
+    public int size(){
+        return size;
+    }
 }

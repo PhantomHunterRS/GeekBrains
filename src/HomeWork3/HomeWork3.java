@@ -23,14 +23,19 @@ public class HomeWork3 {
 //            System.out.println(queue.remove());
 //        }
 
-        MyPriorityQueue<Integer> myPriorityQueue = new MyPriorityQueue<Integer>();
-        myPriorityQueue.insert(5);
-        System.out.println(myPriorityQueue);
-        myPriorityQueue.insert(15);
-        System.out.println(myPriorityQueue);
-        myPriorityQueue.insert(1);
-        System.out.println(myPriorityQueue);
-        myPriorityQueue.remove();
-        System.out.println(myPriorityQueue);
+//        MyPriorityQueue<Integer> myPriorityQueue = new MyPriorityQueue<Integer>();
+//        myPriorityQueue.insert(5);
+//        System.out.println(myPriorityQueue);
+//        myPriorityQueue.insert(15);
+//        System.out.println(myPriorityQueue);
+//        myPriorityQueue.insert(1);
+//        System.out.println(myPriorityQueue);
+//        myPriorityQueue.remove();
+//        System.out.println(myPriorityQueue);
+
+        TurnsOverWords turnsOverWords = new TurnsOverWords("Phantomhunter");
+        System.out.println(turnsOverWords.turnsOverWords());
+
    }
+
 }
