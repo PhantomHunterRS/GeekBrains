@@ -10,7 +10,6 @@ public class MyLinkedList<Item> {
         this.first = null;
         this.last = null;
     }
-
     public boolean isEmpty(){
         return first == null;
     }
@@ -42,11 +41,11 @@ public class MyLinkedList<Item> {
     }
     public void insertLast(Item item){
         Node newNode = new Node (item);
-        newNode.setNext(first);
         if(isEmpty()){
-            last = newNode;
+            first = newNode;
         }else{
             newNode.setPrevious(last);
+            last.setNext(newNode);
         }
         last = newNode;
         size++;
@@ -70,17 +69,82 @@ public class MyLinkedList<Item> {
             return null;
         }
         Node oldLast = first;
-        first = first.next;
-        size--;
-        if (isEmpty()){
-            last = null;
-        }else {
-            first.setPrevious(null);
+        if (last.getPrevious() != null) {
+            last.getPrevious().setNext(null);
+        } else {
+            first = null;
         }
+        size--;
+     last = last.getPrevious();
         return (Item) oldLast.getValue();
     }
+    public String toString() {
+        Node current = first;
+        StringBuilder stringBuilder = new StringBuilder();
+        while (current != null) {
+            stringBuilder.append(current.getValue() + ",");
+            current = current.next;
+        }
+        return stringBuilder.toString();
+    }
+    public int indexOf(Item item) {
+        Node current = first;
+        int index = 0;
+        while (current != null) {
+            if (current.getValue().equals(item)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+    public boolean contains(Item item) {
+        return indexOf(item) > -1;
+    }
+    public void insert(Item item, int index) {
+        if (index <= 0) {
+            insertFirst(item);
+            return;
+        }
+        if (index > size) {
+            index = size;
+        }
+        Node current = first;
 
-    
+        int i = 0;
+        while (i<index-1){
+            current = current.next;
+            i++;
+        }
+        Node newNode = new Node(item);
+        newNode.setNext(current.next);
+        newNode.setPrevious(current);
+        current.setNext(newNode);
+        newNode.getNext().setPrevious(newNode);
+        size++;
+    }
+    public boolean remove (Item item){
+        if (isEmpty()){
+            return false;
+        }
+        if (first.getValue().equals(item)){
+            removeFirst();
+            return true;
+        }
+        Node current = first;
+        while (current != null && !current.getValue().equals(item)) {
+            current = current.next;
+        }
+        if (current == null){
+            removeLast();
+            return true;
+        }
+        current.getNext().setPrevious(current.previous);
+        current.getPrevious().setNext(current.next);
+        size--;
+        return true;
+    }
 
     class Node<Item>{
         private Item value;
@@ -99,10 +163,10 @@ public class MyLinkedList<Item> {
         public void setPrevious(Node previous) {
             this.previous = previous;
         }
+        //constructors
         public Node(Item value) {
             this.value = value;
         }
-
         public Node(Item value, Node next) {
             this.value = value;
             this.next = next;

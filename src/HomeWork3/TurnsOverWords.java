@@ -9,13 +9,13 @@ public class TurnsOverWords {
     }
     public String turnsOverWords(){
         MyStack<Character> myStack = new MyStack(ch.length);
-        StringBuilder stringBuilder = new StringBuilder(myStack.size());
         for (int i = 0; i <ch.length ; i++) {
             myStack.push(ch[i]);
         }
-        for (int i = 0; i <myStack.size(); i++) {
-            stringBuilder.append(myStack.pop());
+        String tOWord = "";
+        for (int i = 0; i < ch.length; i++) {
+            tOWord += myStack.pop();
         }
-        return stringBuilder.toString();
+        return tOWord;
     }
 }
