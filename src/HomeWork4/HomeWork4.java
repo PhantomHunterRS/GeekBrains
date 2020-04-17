@@ -1,5 +1,8 @@
 package HomeWork4;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HomeWork4 {
     public static void main(String[] args) {
         MyLinkedList<String> myLinkedList = new MyLinkedList<String>();
@@ -11,5 +14,6 @@ public class HomeWork4 {
         System.out.println(myLinkedList);
         myLinkedList.removeFirst();
         System.out.println(myLinkedList);
+
     }
 }
