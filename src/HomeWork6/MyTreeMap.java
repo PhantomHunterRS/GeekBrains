@@ -53,7 +53,7 @@ public class MyTreeMap<Key extends Comparable<Key>,Value> {
         if (node == null){
             return "";
         }
-        return toString(node.left) + " " + node.key.toString() + " = " + node.value.toString() + " " +
+        return toString(node.left) + " " + node.key.toString() + " = " + node.value.toString() + " ";// dopisat'
 
     }
 
